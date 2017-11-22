@@ -1,0 +1,59 @@
+<html>
+<head><title>Login</title>
+<style>
+body {
+background-color: #60799f;
+color: white;
+font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+font-size: 20px;
+line-height: 1.5em;
+}
+.pic{
+	width:400px;
+    height:300px;
+	border-style:dotted;
+	top: 50%;
+    left: 50%;
+	margin: -150px 0 0 -200px;
+	position: absolute;
+}
+table{
+	padding-top:75px;
+}
+h1{
+	font-family: "Times New Roman", Times, serif;
+}
+.star{
+	color:red;
+}
+</style>
+</head>
+<body>
+<br>
+<h1><center>Login Page</center></h1>
+<div class="pic"><center>
+<form method="get" action="http://localhost:9999/password/imgcry4">
+<table>
+    <tr>
+	<td>Username<span style="color: red">*</span>: <td><center><input type="text" name="username" placeholder="Username" required></center>
+	</tr>
+	<tr>
+	<td>Roll No<span style="color: red">*</span>: <td><center><input type="number" name="rollno" placeholder="Roll No" min=1 max=120 required> </center>    
+	</tr>
+	<!--<tr>
+    <td>Password: <td><center><input type="password" name="password" placeholder="Password" ></center>
+	</tr>
+	<tr>
+	<td colspan=2><center>OR</center>
+	</tr>
+	<tr>
+	<td>Image: <td><center><input type="file" name="img"></center>
+	</tr>-->
+	<tr>
+    <td colspan=2><center><input type="submit" value="Decrypt"></center>
+	</tr>
+</table>
+  </form></center>
+</div>
+</body>
+</html>

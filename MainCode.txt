@@ -1,0 +1,15 @@
+C:\Users\SMP\Documents\apache-tomcat-7.0.81\bin>startup.bat
+
+C:\Users\SMP\Documents\apache-tomcat-7.0.81\webapps\password\WEB-INF\classes>javac -cp .;C:\Users\SMP\Documents\apache-tomcat-7.0.81\lib\servlet-api.jar ImgCry5.java
+
+C:\Users\SMP\Documents\apache-tomcat-7.0.81\webapps\password\WEB-INF\classes>javac -cp .;C:\Users\SMP\Documents\apache-tomcat-7.0.81\lib\servlet-api.jar;java-json.jar ImgCry3.java
+
+C:\Users\SMP\Documents\apache-tomcat-7.0.81\webapps\password\WEB-INF\classes>javac -cp .;C:\Users\SMP\Documents\apache-tomcat-7.0.81\lib\servlet-api.jar;mail.jar;activation.jar FP.java
+
+
+https://app.jangosmtp.com/login.aspx
+HEPennypecker
+rohanaudiA8%
+
+HEPennypeckerS
+rohanaudiA8%

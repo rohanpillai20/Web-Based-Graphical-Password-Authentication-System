@@ -1,0 +1,83 @@
+<html>
+<head><title>Signup Page</title>
+<style>
+body{
+	background-color: #60799f;
+	color: white;
+	font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+	font-size: 20px;
+	line-height: 1.5em;
+}
+.pic{
+	width:400px;
+    height:300px;
+	border-style:dotted;
+	top: 50%;
+    left: 50%;
+	margin: -150px 0 0 -200px;
+	position: absolute;
+	float:left;
+}
+.img{
+	float:left;
+}
+table{
+	padding-top:75px;
+}
+h1{
+	font-family: "Times New Roman", Times, serif;
+}
+.star{
+	color:red;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+<br>
+<h1><center>Sign Up Page</center></h1>
+<div class="pic"><center>
+<form method="get" action="http://localhost:9999/password/imgcry3">
+<table>
+    <tr>
+	<td>Username<span style="color: red">*</span>: <td><center><input type="text" name="username" placeholder="Username" required></center>
+	</tr>
+	<tr>
+	<td>Roll No<span style="color: red">*</span>: <td><center><input type="number" name="rollno" placeholder="Roll No" min=1 max=120 required> </center>    
+	</tr>
+	<tr>
+    <td>Password: <td><center><input type="password" name="password" placeholder="Password" ></center>
+	</tr>
+	<tr>
+	<td colspan=2><center>OR</center>
+	</tr>
+	<tr>
+	<td>Image: <td><center><input type="file" name="img" id="img" ></center>
+	</tr>
+	<tr>
+    <td colspan=2><center><input type="submit" value="Encrypt"></center>
+	</tr>
+</table>
+  </form></center>
+</div>
+<div class="img">
+<img id="blah" src="#" alt="" height=400 width=400/>
+</div>
+
+<script>
+function readURL(input){
+    if (input.files && input.files[0]){
+        var reader = new FileReader();            
+        reader.onload = function (e){
+            $('#blah').attr('src', e.target.result);
+        }            
+		reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$("#img").change(function(){
+    readURL(this);
+});
+</script>
+</body>
+</html>

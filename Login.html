@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Graphical Password Authentication System</title>
+
+<!-- CSS File-->
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" /> 
+<!-- JS Files-->
+<script src="js/jquery-2.2.3.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+
+</head>
+<body>
+	<!-- main -->
+	<div class="main-agileits">
+		<h1>Graphical Password Authentication System - Login</h1>
+		<!-- form -->
+		<div class="mainw3-agileinfo form" style="margin-left:100px; float:left;">
+			<div id="login">    
+				<form method="get" action="http://localhost:9999/password/imgcry4"> 
+					<div class="field-wrap">
+						<label> Username<span class="req">*</span> </label>
+						<input type="text" name="username" required>
+					</div> 
+					<div class="field-wrap">
+						<label> Roll No<span class="req">*</span> </label>
+						<input type="number" name="rollno" min=1 max=120 required>
+					</div>
+					<p class="forgot"><a href="http://localhost:9999/password/ForgotPassword.html">Forgot Password?</a></p>
+					<center><button id="getimage" class="button button-block" formaction="http://localhost:9999/password/imgcry5"/>Get Image</button></center>
+					<!--<button class="button button-block"/>Sign Up</button>-->
+				</form>
+				<form action="https://localhost:8443/password/SignUp.html" style="margin-top:20px">
+				<span style="color:white;">Not a member?</span>
+				<button id="getimage" class="button button-block" />SIGN UP</button>
+				</form>
+			</div>         
+		</div>
+		<!-- //form -->
+		<!-- image -->
+		<div class = "img" style="float:left; padding: 150px 150px 80px 150px; width: 33%;">
+			<img id="blah" src="#" alt="" height=400 width=500 />
+		</div>
+		<!-- //image -->
+	</div>
+	<!-- //main -->
+
+	<!-- copyright -->
+	<center>
+	<div class="w3copyright-agile">
+		<p>Rohan Pillai (15BIT049) | Shrey Vaghela (15BIT064)</p>
+	</div>
+	</center>
+	<!-- //copyright --> 
+	
+	<!-- JS -->
+	<script>
+	$('.form').find('input, textarea').on('keyup blur focus', function (e) { 
+	  var $this = $(this),
+		  label = $this.prev('label');
+
+		  if (e.type === 'keyup') {
+				if ($this.val() === '') {
+			  label.removeClass('active highlight');
+			} else {
+			  label.addClass('active highlight');
+			}
+		} else if (e.type === 'blur') {
+			if( $this.val() === '' ) {
+				label.removeClass('active highlight'); 
+				} else {
+				label.removeClass('highlight');   
+				}   
+		} else if (e.type === 'focus') {
+		  
+		  if( $this.val() === '' ) {
+				label.removeClass('highlight'); 
+				} 
+		  else if( $this.val() !== '' ) {
+				label.addClass('highlight');
+				}
+		}
+ 
+	}); 
+	</script>
+	
+	<script>
+		function readURL(input){
+			if (input.files && input.files[0]){
+				var reader = new FileReader();            
+				reader.onload = function (e){
+					$('#blah').attr('src', e.target.result);
+				}            
+				reader.readAsDataURL(input.files[0]);
+			}
+		}
+
+		$("#img").change(function(){
+			readURL(this);
+		});
+		
+		var setHeight = $(".mainw3-agileinfo form").height();
+		$(".img").height(setHeight);
+	</script>
+	<!-- //JS -->
+	
+</body>
+</html>
