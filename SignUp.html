@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Graphical Password Authentication System</title>
+
+<!-- CSS File-->
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" /> 
+<!-- JS Files-->
+<script src="js/jquery-2.2.3.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+
+</head>
+<body>
+	<!-- main -->
+	<div class="main-agileits">
+		<h1>Graphical Password Authentication System - Sign Up</h1>
+		<!-- form -->
+		<div class="mainw3-agileinfo form" style="margin-left:100px; float:left;">
+			<div id="login">    
+				<form method="get" action="http://localhost:9999/password/imgcry3"> 
+					<div class="field-wrap">
+						<label> Username<span class="req">*</span> </label>
+						<input type="text" name="username" required>
+					</div> 
+					<div class="field-wrap">
+						<label> Roll No<span class="req">*</span> </label>
+						<input type="number" name="rollno" min=1 max=120 required>
+					</div>
+					<div class="field-wrap">
+						<label> Your Email<span class="req">*</span></label>
+						<input type="email" name="email">
+					</div>					
+					<div class="field-wrap">
+						<label> Your Password</label>
+						<input type="password" name="password">
+					</div> 
+					<div class="field-wrap">
+						<input type="file" name="img" id="img" required>
+					</div>
+					<div class="field-wrap">
+						<input type="password" name="pixel1" id="pixel1" value="" readonly>
+					</div> 					
+					<button id="signup" class="button button-block" onclick="abc()" />Sign Up</button> 					
+				</form>
+				<form action="http://localhost:9999/password/Login.html">
+					<button id="signup" class="button button-block" />Login</button>
+				</form>
+			</div>
+         
+		</div>
+		<!-- //form -->
+		<!-- image -->
+		<div class = "img" style="float:left; padding: 110px 150px 80px 150px; width: 33%;">
+			<a id="pixel">
+				<img id="blah" src="#" alt="" height=400 width=500/>
+			</a>
+		</div>
+		<!-- //image -->
+	</div>
+	<!-- //main -->
+
+	<!-- copyright -->
+	<center>
+	<div class="w3copyright-agile">
+		<p>Rohan Pillai (15BIT049) | Shrey Vaghela (15BIT064)</p>
+	</div>
+	</center>
+	<!-- //copyright --> 
+	
+	<!-- JS -->
+	<script>
+	$('.form').find('input, textarea').on('keyup blur focus', function (e) { 
+	  var $this = $(this),
+		  label = $this.prev('label');
+
+		  if (e.type === 'keyup') {
+				if ($this.val() === '') {
+			  label.removeClass('active highlight');
+			} else {
+			  label.addClass('active highlight');
+			}
+		} else if (e.type === 'blur') {
+			if( $this.val() === '' ) {
+				label.removeClass('active highlight'); 
+				} else {
+				label.removeClass('highlight');   
+				}   
+		} else if (e.type === 'focus') {
+		  
+		  if( $this.val() === '' ) {
+				label.removeClass('highlight'); 
+				} 
+		  else if( $this.val() !== '' ) {
+				label.addClass('highlight');
+				}
+		}
+ 
+	}); 
+	</script>
+	
+	<script>
+		function readURL(input){
+			if (input.files && input.files[0]){
+				var reader = new FileReader();            
+				reader.onload = function (e){
+					$('#blah').attr('src', e.target.result);
+				}            
+				reader.readAsDataURL(input.files[0]);
+			}
+		}
+
+		$("#img").change(function(){
+			readURL(this);
+		});
+		
+		var setHeight = $(".mainw3-agileinfo form").height();
+		$(".img").height(setHeight);
+	</script>
+	<script>
+		var a = [];
+		$(function() {
+			$("#pixel").click(function(e) {
+				var offset = $(this).offset();
+				var relativeX = (e.pageX - offset.left);
+				var relativeY = (e.pageY - offset.top);
+				//alert(relativeX+','+relativeY);
+
+				a.push({X: relativeX, Y: relativeY});
+				//console.log(a);
+				$(".position").val("afaf");
+				
+				//document.getElementById('pixel1').value = a[0].X+","+a[0].Y;
+				var arr1 = Object.keys(a).map(function (key) { return a[key].X; });
+				var arr2 = Object.keys(a).map(function (key) { return a[key].Y; });
+				document.getElementById('pixel1').value = arr1+","+arr2;
+			});
+		});
+		
+	</script>
+	<!--<script>
+		$(function abc() {
+			$(".signup").click(function(e) {
+				$.ajax({
+					url: 'http://localhost:9999/password/imgcry3',
+					type: 'GET', 
+					dataType: 'json',
+					data: {objarray: a},
+					success: function(result) {
+					alert('SUCCESS');
+					}
+				});
+			});
+		});
+	</script>-->
+
+	<!-- //JS -->
+	
+</body>
+</html>
